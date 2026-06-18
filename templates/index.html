@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBook Hub</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="overlay">
+
+        <nav>
+            <div class="logo">
+                📚 SmartBook Hub
+            </div>
+
+            <button id="themeBtn">
+                🌙
+            </button>
+        </nav>
+
+        <section class="hero">
+
+            <h1>
+                Discover & Download Your Favorite Books
+            </h1>
+
+            <p>
+                Search thousands of free books instantly.
+            </p>
+
+            <form action="/search" method="POST">
+
+                <input
+                    type="text"
+                    name="book"
+                    placeholder="Search books..."
+                    required
+                >
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+
+            {% if searched_book %}
+            <div class="search-result">
+                You searched for:
+                <strong>{{ searched_book }}</strong>
+            </div>
+            {% endif %}
+
+        </section>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
